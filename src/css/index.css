@@ -13,4 +13,9 @@
     src: local('Montserrat'), url(../assets/fonts/Montserrat-Regular.ttf);
 }
 
+@font-face {
+    font-family: Montserrat-Bold;
+    src: local('Montserrat-Bold'), url(../assets/fonts/Montserrat-Bold.ttf);
+}
+
 @tailwind utilities;

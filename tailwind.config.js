@@ -70,7 +70,7 @@ module.exports = {
           ...defaultTheme.fontFamily.sans
         ],
         display : 'Lato',
-        header: 'Montserrat'
+        header: 'Montserrat-Bold'
       },
       zIndex: {
         '-10': -10
