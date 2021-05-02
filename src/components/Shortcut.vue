@@ -3,11 +3,11 @@
     class="shortcut font-display flex flex-col items-center rounded-md 
     hover:bg-white hover:shadow-md hover:text-primary-500 p-2"
   >
-    <div class="w-5/12">
+    <div class="w-4/12 md:w-5/12">
       <slot></slot>
     </div>
     <div>
-      <span class="font-bold text-xs md:text-lg"> {{ name }} </span>
+      <span class="font-bold text-lg"> {{ name }} </span>
     </div>
   </div>
 </template>
