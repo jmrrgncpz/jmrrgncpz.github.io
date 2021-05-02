@@ -29,7 +29,10 @@
   >
     <circle cx="700" cy="-400" r="615" stroke-width="3" fill="#F5B59F" />
   </svg> -->
-  <div id="hero" class="p-4 md:p-7 flex flex-col font-display h-screen w-screen overflow-hidden">
+  <div
+    id="hero"
+    class="p-4 md:p-7 flex flex-col font-display h-screen w-screen overflow-hidden text-black"
+  >
     <div id="header">
       <h4 id="brand" class="font-header text-xl md:text-3xl">paz</h4>
     </div>
@@ -45,7 +48,8 @@
             <span>Paz</span>
           </div>
           <div class="mb-8">
-            <span class="font-display text-primary-500 text-2xl md:text-3xl mb-1"
+            <span
+              class="font-display text-primary-500 text-2xl md:text-3xl mb-1"
               >Full-stack web developer</span
             >
           </div>
@@ -82,15 +86,64 @@
       </div>
     </div>
   </div>
-  <div id="about" class="">
-    <div class="about-me">
+  <div id="about" class="p-10 md:mx-40 text-black flex flex-col">
+    <div id="about-me" class="mb-12 md:w-3/6 md:p-5">
+      <h1 class="font-header text-4xl md:text-5xl mb-6">About</h1>
+      <p class="text-lg md:text-2xl mb-4">
+        A full-stack developer with around
+        <span class="text-primary-500 font-semibold"
+          >3 years of experience</span
+        >
+        working with
+        <span class="text-primary-500 font-semibold">web technologies.</span>
+      </p>
+      <p class="text-lg md:text-2xl mb-12">
+        I pride myself as someone who's
+        <span class="text-primary-500 font-semibold"
+          >passionate on web development / software engineering</span
+        >. Learned and practiced a lot since I was a student.
+      </p>
+      <p class="text-2xl md:text-4xl font-bold">
+        <span class="text-primary-500">Challenges excite me.</span> <br />
+        <span class="font-medium"
+          >If you need a solution for your business, I might be able to
+          help</span
+        >.
+      </p>
+    </div>
 
+    <div class="md:w-3/6 md:self-end md:p-5">
+      <div id="key-technologies" class="mb-10">
+        <h1 class="font-header text-4xl md:text-5xl">Key Technologies</h1>
+        <p class="mb-6 text-lg">The tech I worked a lot with</p>
+        <Tag label="Javascript" />
+        <Tag label="C#" />
+        <Tag label="T-SQL" />
+      </div>
+      <div id="technologies">
+        <h1 class="font-header text-4xl md:text-5xl">Technologies</h1>
+        <p class="mb-6 text-lg">
+          Languages, frameworks, libraries, and tools I have used
+        </p>
+        <div class="flex flex-wrap">
+          <Tag label="HTML / CSS / SAAS" />
+          <Tag label="Vue / React / Aurelia / Angular" />
+          <Tag label="Vuex / Vue Router" />
+          <Tag label="C# / .Net 4.6^ / .Net Core 5" />
+          <Tag label="Bulma CSS / Buefy / Material UI / Tailwind CSS" />
+          <Tag label="T-SQL / Entity Framework 6 / Entity Framework Core" />
+          <Tag label="Git / Azure Devops CI CD" />
+          <Tag label="AJAX / Axios" />
+          <Tag label="Node / NPM / Webpack / Parcel" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import Shortcut from "./components/Shortcut.vue";
+import Tag from "./components/Tag.vue";
 import {
   UserIcon,
   TemplateIcon,
@@ -105,6 +158,7 @@ export default {
     CodeIcon,
     PhoneIcon,
     Shortcut,
+    Tag,
   },
 };
 </script>
