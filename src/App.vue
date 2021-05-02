@@ -70,7 +70,7 @@
           id="shortcut-container"
           class="w-full md:w-6/12 grid gap-2 grid-cols-2"
         >
-          <Shortcut name="About">
+          <Shortcut name="About" v-on:shortcut-clicked="scrollToElement('about')">
             <UserIcon />
           </Shortcut>
           <Shortcut name="Blog">
@@ -160,7 +160,17 @@ export default {
     Shortcut,
     Tag,
   },
+  methods: {
+    scrollToElement(elementId) {
+      const el = document.querySelector('#' + elementId);
+      el.scrollIntoView({ block: 'start', inline: 'nearest' });
+    }
+  }
 };
 </script>
 
-<style></style>
+<style>
+html {
+  scroll-behavior: smooth;
+}
+</style>
