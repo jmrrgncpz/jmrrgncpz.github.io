@@ -73,13 +73,13 @@
           <Shortcut name="About" v-on:shortcut-clicked="scrollToElement('about')">
             <UserIcon />
           </Shortcut>
-          <Shortcut name="Blog">
+          <Shortcut name="Blog" v-on:shortcut-clicked="scrollToElement('blog')">
             <TemplateIcon />
           </Shortcut>
-          <Shortcut name="Projects">
+          <Shortcut name="Projects" v-on:shortcut-clicked="scrollToElement('projects')">
             <CodeIcon />
           </Shortcut>
-          <Shortcut name="Contact Me">
+          <Shortcut name="Contact Me" v-on:shortcut-clicked="scrollToElement('contact-me')">
             <PhoneIcon />
           </Shortcut>
         </div>
@@ -139,6 +139,40 @@
       </div>
     </div>
   </div>
+  <div id="projects" class="p-10 md:mx-40 text-black">
+    <h1 class="font-header text-4xl md:text-5xl mb-6">Projects</h1>
+  </div>
+  <div id="blog" class="p-10 md:mx-40 text-black">
+    <h1 class="font-header text-4xl md:text-5xl mb-6">Blog</h1>
+  </div>
+  <div id="contact-me" class="p-10 md:mx-40 bg-blue-900 text-white md:flex flex-wrap">
+    <div id="contact-me-section" class="mb-6 md:mb-0 flex-1">
+      <h1 class="font-header text-4xl md:text-5xl mb-6">Contact me</h1>
+      <div class="flex">
+        <PhoneIcon class="w-5 mr-4" />
+        +63 977-461-9089
+      </div>
+      <div class="flex">
+        <MailIcon class="w-5 mr-4"  />
+        paz.jesr@gmail.com
+      </div>
+      <br/>
+    </div>
+    <div id="social" class="flex-1 mb-12 md:mb-0">
+      <h1 class="font-header text-4xl md:text-5xl mb-6">Social</h1>
+      <div class="flex">
+        <a href="https://www.linkedin.com/in/jesmer-paz-24363b159/" class="w-12 mr-2">
+          <img v-bind:src="linkedIn" class="rounded-full" />
+        </a>
+        <a href="https://github.com/jmrrgncpz" class="w-12">
+          <img v-bind:src="github" class="rounded-full" />
+        </a>
+      </div>
+    </div>
+    <div class="text-center md:text-left w-full">
+      © 2021, Jesmer Regencia Paz
+    </div>
+  </div>
 </template>
 
 <script>
@@ -149,14 +183,36 @@ import {
   TemplateIcon,
   CodeIcon,
   PhoneIcon,
+  MailIcon,
+
 } from "@heroicons/vue/solid";
 
 export default {
+  data() {
+    return {
+      linkedIn : '',
+      github : '',
+    } 
+  },
+  mounted() {
+    fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=linkedin`, { method : 'get' })
+    .then(res => res.json())
+    .then(data => {
+      this.linkedIn = data[0].logo;
+    })
+
+    fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=github`, { method : 'get' })
+    .then(res => res.json())
+    .then(data => {
+      this.github = data[0].logo;
+    })
+  },
   components: {
     UserIcon,
     TemplateIcon,
     CodeIcon,
     PhoneIcon,
+    MailIcon,
     Shortcut,
     Tag,
   },
