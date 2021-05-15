@@ -6,5 +6,5 @@ import autoprefixer from 'autoprefixer';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), tailwindcss, autoprefixer],
-  base: "https://jmrrgncpz.github.io/paz-portfolio/"
+  base: "https://jmrrgncpz.github.io/"
 })
