@@ -141,6 +141,17 @@
   </div>
   <div id="projects" class="p-10 md:mx-40 text-black">
     <h1 class="font-header text-4xl md:text-5xl mb-6">Projects</h1>
+
+    <div id="projects-container" class="grid grid-cols-2 gap-3">
+      <Project v-for="(project, i) in projects"
+        :key="i"
+        :title="project.title"
+        :imagePath="project.imagePath"
+        :technologyNames="project.technologyNames"
+        :url="project.url"
+      >
+      </Project>
+    </div>
   </div>
   <div id="blog" class="p-10 md:mx-40 text-black">
     <h1 class="font-header text-4xl md:text-5xl mb-6">Blog</h1>
@@ -177,6 +188,7 @@
 
 <script>
 import Shortcut from "./components/Shortcut.vue";
+import Project from "./components/Project.vue";
 import Tag from "./components/Tag.vue";
 import {
   UserIcon,
@@ -186,12 +198,21 @@ import {
   MailIcon,
 
 } from "@heroicons/vue/solid";
+import agileValuesPrincipleImg from './assets/project-images/agile-values-principles.png'
 
 export default {
   data() {
     return {
       linkedIn : '',
       github : '',
+      projects: [
+        {
+          title: 'Agile Values and Principles',
+          imagePath: agileValuesPrincipleImg,
+          technologyNames: ['vuejs', 'vuetify', 'firebase.events'],
+          url: 'https://jmrrgncpz.github.io/agile-values-principles'
+        }
+      ],
     } 
   },
   mounted() {
@@ -215,6 +236,7 @@ export default {
     MailIcon,
     Shortcut,
     Tag,
+    Project
   },
   methods: {
     scrollToElement(elementId) {
