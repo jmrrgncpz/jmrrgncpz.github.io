@@ -3,7 +3,7 @@
     <a
       :href="url"
       target="_blank"
-      class="text-xl md:text-2xl md:hover:underline hover:text-primary-500 font-semibold"
+      class="text-xl md:text-2xl md:hover:underline text-primary-500 font-semibold"
       >{{ title }}</a
     >
     <h6 class="mt-2 mb-1">Technologies</h6>
