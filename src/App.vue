@@ -199,6 +199,7 @@ import {
 
 } from "@heroicons/vue/solid";
 import agileValuesPrincipleImg from './assets/project-images/agile-values-principles.png'
+import covid19ObserverImg from './assets/project-images/covid19-observer.PNG'
 
 export default {
   data() {
@@ -211,7 +212,13 @@ export default {
           imagePath: agileValuesPrincipleImg,
           technologyNames: ['vuejs', 'vuetify', 'firebase.events'],
           url: 'https://jmrrgncpz.github.io/agile-values-principles'
-        }
+        },
+        {
+          title: 'Covid-19 Observer',
+          imagePath: covid19ObserverImg,
+          technologyNames: ['vuejs', 'https://buefy.org/', 'node', 'heroku', 'postgresql'],
+          url: 'https://jmrrgncpz.github.io/COVID19Observer'
+        },
       ],
     } 
   },
