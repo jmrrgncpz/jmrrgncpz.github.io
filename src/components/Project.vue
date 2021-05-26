@@ -13,7 +13,6 @@
         :key="i"
         :label="technologyLogo.label"
         :imgSrc="technologyLogo.imgSrc"
-        :custom-class="['p-0']"
       ></Tag>
     </div>
     <img class="shadow-lg bg-white rounded-md" :src="imagePath" />
