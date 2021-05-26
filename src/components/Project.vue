@@ -1,36 +1,42 @@
 <template>
   <div class="project-card">
-    <a :href="url" target="_blank"><h2 class="text-xl md:text-2xl mb-4">{{ title }}</h2></a>
-    <div class="logo-container mb-4 flex">
-      <img
+    <a
+      :href="url"
+      target="_blank"
+      class="text-xl md:text-2xl md:hover:underline hover:text-primary-500 font-semibold"
+      >{{ title }}</a
+    >
+    <h6 class="mt-2 mb-1">Technologies</h6>
+    <div class="logo-container mb-4 flex flex-wrap">
+      <Tag
         v-for="(technologyLogo, i) in technologyLogos"
         :key="i"
-        :src="technologyLogo"
-        class="rounded-full w-12 mr-2"
-      />
+        :label="technologyLogo.label"
+        :imgSrc="technologyLogo.imgSrc"
+        :custom-class="['p-0']"
+      ></Tag>
     </div>
     <img class="shadow-lg bg-white rounded-md" :src="imagePath" />
   </div>
 </template>
 
 <script>
+import Tag from "./Tag.vue";
+
+const replaceableLogoLink =
+  "https://autocomplete.clearbit.com/v1/companies/suggest?query=";
 export default {
+  components: { Tag },
   props: {
     title: String,
     imagePath: String,
-    technologyNames: Array,
+    technologies: Array,
     url: String,
   },
   mounted() {
-    const promises = this.technologyNames.map((name) =>
-      this.getTechnologyLogo(name)
+    this.technologies.forEach((technology) =>
+      this.getTechnologyLogo(technology)
     );
-    Promise.all(promises).then((resAll) => {
-      resAll.forEach(async (res) => {
-        const resJson = await res.json();
-        this.technologyLogos.push(resJson[0].logo);
-      });
-    });
   },
   data() {
     return {
@@ -38,11 +44,23 @@ export default {
     };
   },
   methods: {
-    getTechnologyLogo(name) {
+    getTechnologyLogo(technology) {
+      const isObject = typeof technology == "object";
       return fetch(
-        `https://autocomplete.clearbit.com/v1/companies/suggest?query=${name}`
-      );
-    }
+        `https://autocomplete.clearbit.com/v1/companies/suggest?query=${
+          isObject ? technology.logoName : technology
+        }`
+      ).then(async (res) => {
+        const resJson = await res.json();
+        const logo =
+          resJson[0]?.logo ||
+          res.url.replace(replaceableLogoLink, "https://logo.clearbit.com/");
+        this.technologyLogos.push({
+          imgSrc: logo,
+          label: isObject ? technology.name : technology,
+        });
+      });
+    },
   },
 };
 </script>

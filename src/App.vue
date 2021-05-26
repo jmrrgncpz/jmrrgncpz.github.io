@@ -140,14 +140,14 @@
     </div>
   </div>
   <div id="projects" class="p-10 md:mx-40 text-black">
-    <h1 class="font-header text-4xl md:text-5xl mb-6">Projects</h1>
+    <h1 class="font-header text-4xl md:text-5xl mb-6">Projects / Sample Works</h1>
 
-    <div id="projects-container" class="grid grid-cols-2 gap-3">
+    <div id="projects-container" class="grid gap-12 grid-cols-1 md:grid-cols-2">
       <Project v-for="(project, i) in projects"
         :key="i"
         :title="project.title"
         :imagePath="project.imagePath"
-        :technologyNames="project.technologyNames"
+        :technologies="project.technologies"
         :url="project.url"
       >
       </Project>
@@ -199,7 +199,7 @@ import {
 
 } from "@heroicons/vue/solid";
 import agileValuesPrincipleImg from './assets/project-images/agile-values-principles.png'
-import covid19ObserverImg from './assets/project-images/covid19-observer.PNG'
+import covid19ObserverImg from './assets/project-images/covid19-observer.png'
 
 export default {
   data() {
@@ -210,13 +210,27 @@ export default {
         {
           title: 'Agile Values and Principles',
           imagePath: agileValuesPrincipleImg,
-          technologyNames: ['vuejs', 'vuetify', 'firebase.events'],
+          technologies: [
+            'vuejs',
+            'vuetify',
+            { logoName: 'firebase.events', name: 'firebase' },
+            'jest'
+          ],
           url: 'https://jmrrgncpz.github.io/agile-values-principles'
         },
         {
           title: 'Covid-19 Observer',
           imagePath: covid19ObserverImg,
-          technologyNames: ['vuejs', 'https://buefy.org/', 'node', 'heroku', 'postgresql'],
+          technologies: [
+            'vuejs',
+            {
+              logoName: 'buefy.org',
+              name: 'buefy'
+            },
+            'node',
+            'heroku',
+            'postgresql'
+          ],
           url: 'https://jmrrgncpz.github.io/COVID19Observer'
         },
       ],
