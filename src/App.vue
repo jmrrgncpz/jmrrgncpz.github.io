@@ -1,91 +1,5 @@
 <template>
-  <!-- <svg
-    class="absolute -z-10 "
-    style="top: 5em; left: 1em;"
-  >
-    <circle cx="200" cy="200" r="200" stroke-width="3" fill="#FADDCE" />
-  </svg>
-  <svg
-    height="560"
-    width="560"
-    class="absolute -z-10 "
-    style="top: -13rem; left: 12rem"
-  >
-    <circle cx="280" cy="280" r="280" stroke-width="3" fill="#F5B59F" />
-  </svg>
-  <svg
-    height="400"
-    width="400"
-    class="absolute -z-10 invisible xl:visible"
-    style="top: 0; right: -15rem"
-  >
-    <circle cx="200" cy="200" r="200" stroke-width="3" fill="#FADDCE" />
-  </svg>
-  <svg
-    height="300"
-    width="700"
-    class="absolute -z-10 invisible xl:visible"
-    style="top: 0; right: 0"
-  >
-    <circle cx="700" cy="-400" r="615" stroke-width="3" fill="#F5B59F" />
-  </svg> -->
-  <div
-    id="hero"
-    class="p-4 md:p-7 flex flex-col font-display h-screen w-screen overflow-hidden text-black"
-  >
-    <div id="header">
-      <h4 id="brand" class="font-header text-xl md:text-3xl">paz</h4>
-    </div>
-    <div
-      id="main"
-      class="flex flex-1 flex-col md:flex-row md:mx-40 h-4/5 p-10 md:p-0 items-center md:justify-between"
-    >
-      <div class="flex items-center flex-1">
-        <div class="flex flex-col">
-          <div class="font-header text-7xl md:text-8xl">
-            <span>Jesmer</span>
-            <br />
-            <span>Paz</span>
-          </div>
-          <div class="mb-8">
-            <span
-              class="font-display text-primary-500 text-2xl md:text-3xl mb-1"
-              >Full-stack web developer</span
-            >
-          </div>
-          <div class="flex justify-center md:justify-start">
-            <button
-              class="bg-primary-500 text-white text-sm md:text-md w-full md:w-auto p-2 rounded self-center"
-            >
-              Create something amazing with me
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        id="shortcuts-section"
-        class="flex flex-1 w-full items-center justify-center md:justify-end"
-      >
-        <div
-          id="shortcut-container"
-          class="w-full md:w-6/12 grid gap-2 grid-cols-2"
-        >
-          <Shortcut name="About" v-on:shortcut-clicked="scrollToElement('about')">
-            <UserIcon />
-          </Shortcut>
-          <Shortcut name="Blog" v-on:shortcut-clicked="scrollToElement('blog')">
-            <TemplateIcon />
-          </Shortcut>
-          <Shortcut name="Projects" v-on:shortcut-clicked="scrollToElement('projects')">
-            <CodeIcon />
-          </Shortcut>
-          <Shortcut name="Contact Me" v-on:shortcut-clicked="scrollToElement('contact-me')">
-            <PhoneIcon />
-          </Shortcut>
-        </div>
-      </div>
-    </div>
-  </div>
+  <Hero v-on:shortcut-clicked="(elementId) => scrollToElement(elementId)" />
   <div id="about" class="p-10 md:mx-40 text-black flex flex-col">
     <div id="about-me" class="mb-12 md:w-3/6 md:p-5">
       <h1 class="font-header text-4xl md:text-5xl mb-6">About</h1>
@@ -140,10 +54,13 @@
     </div>
   </div>
   <div id="projects" class="p-10 md:mx-40 text-black">
-    <h1 class="font-header text-4xl md:text-5xl mb-6">Projects / Sample Works</h1>
+    <h1 class="font-header text-4xl md:text-5xl mb-6">
+      Projects / Sample Works
+    </h1>
 
     <div id="projects-container" class="grid gap-12 grid-cols-1 md:grid-cols-2">
-      <Project v-for="(project, i) in projects"
+      <Project
+        v-for="(project, i) in projects"
         :key="i"
         :title="project.title"
         :imagePath="project.imagePath"
@@ -156,7 +73,10 @@
   <div id="blog" class="p-10 md:mx-40 text-black">
     <h1 class="font-header text-4xl md:text-5xl mb-6">Blog</h1>
   </div>
-  <div id="contact-me" class="p-10 md:mx-40 bg-blue-900 text-white md:flex flex-wrap">
+  <div
+    id="contact-me"
+    class="p-10 md:mx-40 bg-blue-900 text-white md:flex flex-wrap"
+  >
     <div id="contact-me-section" class="mb-6 md:mb-0 flex-1">
       <h1 class="font-header text-4xl md:text-5xl mb-6">Contact me</h1>
       <div class="flex">
@@ -164,15 +84,18 @@
         +63 977-461-9089
       </div>
       <div class="flex">
-        <MailIcon class="w-5 mr-4"  />
+        <MailIcon class="w-5 mr-4" />
         paz.jesr@gmail.com
       </div>
-      <br/>
+      <br />
     </div>
     <div id="social" class="flex-1 mb-12 md:mb-0">
       <h1 class="font-header text-4xl md:text-5xl mb-6">Social</h1>
       <div class="flex">
-        <a href="https://www.linkedin.com/in/jesmer-paz-24363b159/" class="w-12 mr-2">
+        <a
+          href="https://www.linkedin.com/in/jesmer-paz-24363b159/"
+          class="w-12 mr-2"
+        >
           <img v-bind:src="linkedIn" class="rounded-full" />
         </a>
         <a href="https://github.com/jmrrgncpz" class="w-12">
@@ -187,89 +110,90 @@
 </template>
 
 <script>
-import Shortcut from "./components/Shortcut.vue";
+import Hero from './Hero.vue'
 import Project from "./components/Project.vue";
 import Tag from "./components/Tag.vue";
 import {
-  UserIcon,
-  TemplateIcon,
-  CodeIcon,
-  PhoneIcon,
-  MailIcon,
-
+  MailIcon
 } from "@heroicons/vue/solid";
-import agileValuesPrincipleImg from './assets/project-images/agile-values-principles.png'
-import covid19ObserverImg from './assets/project-images/covid19-observer.png'
+import agileValuesPrincipleImg from "./assets/project-images/agile-values-principles.png";
+import covid19ObserverImg from "./assets/project-images/covid19-observer.png";
 
 export default {
   data() {
     return {
-      linkedIn : '',
-      github : '',
+      linkedIn: "",
+      github: "",
       projects: [
         {
-          title: 'Agile Values and Principles',
+          title: "Agile Values and Principles",
           imagePath: agileValuesPrincipleImg,
           technologies: [
-            'vuejs',
-            'vuetify',
-            { logoName: 'firebase.events', name: 'firebase' },
-            'jest'
+            "vuejs",
+            "vuetify",
+            { logoName: "firebase.events", name: "firebase" },
+            "jest",
           ],
-          url: 'https://jmrrgncpz.github.io/agile-values-principles'
+          url: "https://jmrrgncpz.github.io/agile-values-principles",
         },
         {
-          title: 'Covid-19 Observer',
+          title: "Covid-19 Observer",
           imagePath: covid19ObserverImg,
           technologies: [
-            'vuejs',
+            "vuejs",
             {
-              logoName: 'buefy.org',
-              name: 'buefy'
+              logoName: "buefy.org",
+              name: "buefy",
             },
-            'node',
-            'heroku',
-            'postgresql'
+            "node",
+            "heroku",
+            "postgresql",
           ],
-          url: 'https://jmrrgncpz.github.io/COVID19Observer'
+          url: "https://jmrrgncpz.github.io/COVID19Observer",
         },
       ],
-    } 
+    };
   },
   mounted() {
-    fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=linkedin`, { method : 'get' })
-    .then(res => res.json())
-    .then(data => {
-      this.linkedIn = data[0].logo;
-    })
+    fetch(
+      `https://autocomplete.clearbit.com/v1/companies/suggest?query=linkedin`,
+      { method: "get" }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        this.linkedIn = data[0].logo;
+      });
 
-    fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=github`, { method : 'get' })
-    .then(res => res.json())
-    .then(data => {
-      this.github = data[0].logo;
-    })
+    fetch(
+      `https://autocomplete.clearbit.com/v1/companies/suggest?query=github`,
+      { method: "get" }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        this.github = data[0].logo;
+      });
   },
   components: {
-    UserIcon,
-    TemplateIcon,
-    CodeIcon,
-    PhoneIcon,
+    Hero,
     MailIcon,
-    Shortcut,
     Tag,
-    Project
+    Project,
   },
   methods: {
     scrollToElement(elementId) {
-      const el = document.querySelector('#' + elementId);
-      el.scrollIntoView({ block: 'start', inline: 'nearest' });
-    }
-  }
+      const el = document.querySelector("#" + elementId);
+      el.scrollIntoView({ block: "start", inline: "nearest" });
+    },
+  },
 };
 </script>
 
 <style>
 html {
   scroll-behavior: smooth;
+  background-color: #fff1eb;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='1' y2='0' gradientTransform='rotate(165,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23faddce'/%3E%3Cstop offset='1' stop-color='%23f5b59f'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(167,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23f5b59f'/%3E%3Cstop offset='1' stop-color='%23faddce'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23FFF' fill-opacity='0' stroke-miterlimit='10'%3E%3Cg stroke='url(%23a)' stroke-width='53.79'%3E%3Cpath transform='translate(-218.75 8) rotate(-6.25 1409 581) scale(0.848625)' d='M1409 581 1450.35 511 1490 581z'/%3E%3Ccircle stroke-width='17.930000000000003' transform='translate(-282.5 170) rotate(13.5 800 450) scale(1.009224)' cx='500' cy='100' r='40'/%3E%3Cpath transform='translate(33 -172.5) rotate(97.5 401 736) scale(1.009224)' d='M400.86 735.5h-83.73c0-23.12 18.74-41.87 41.87-41.87S400.86 712.38 400.86 735.5z'/%3E%3C/g%3E%3Cg stroke='url(%23b)' stroke-width='16.3'%3E%3Cpath transform='translate(1020 7) rotate(-1.75 150 345) scale(0.9728749999999999)' d='M149.8 345.2 118.4 389.8 149.8 434.4 181.2 389.8z'/%3E%3Crect stroke-width='35.86000000000001' transform='translate(-267.5 -462.5) rotate(72 1089 759)' x='1039' y='709' width='100' height='100'/%3E%3Cpath transform='translate(-600 160) rotate(12 1400 132) scale(0.625)' d='M1426.8 132.4 1405.7 168.8 1363.7 168.8 1342.7 132.4 1363.7 96 1405.7 96z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
 }
 </style>

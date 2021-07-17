@@ -8,7 +8,7 @@
       <slot></slot>
     </div>
     <div>
-      <span class="font-bold text-lg"> {{ name }} </span>
+      <span class="font-bold text-xs md:text-lg"> {{ name }} </span>
     </div>
   </div>
 </template>
