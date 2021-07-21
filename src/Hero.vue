@@ -6,7 +6,7 @@
       md:p-7
       flex flex-col
       font-display
-      h-screen
+      min-h-screen
       w-screen
       overflow-hidden
       text-black
@@ -19,7 +19,7 @@
       id="main"
       class="
         flex flex-1 flex-col
-        md:flex-row md:mx-40
+        md:flex-row md:mx-20 lg:mx-40
         h-4/5
         p-10
         md:p-0
@@ -29,14 +29,14 @@
     >
       <div class="flex items-center flex-1">
         <div class="flex flex-col">
-          <div class="font-header text-7xl md:text-8xl">
+          <div class="font-header text-7xl lg:text-8xl">
             <span>Jesmer</span>
             <br />
             <span>Paz</span>
           </div>
           <div class="mb-8">
             <span
-              class="font-display text-primary-500 text-2xl md:text-3xl mb-1"
+              class="font-display text-primary-500 text-2xl lg:text-3xl mb-1"
               >Full-stack web developer</span
             >
           </div>
@@ -63,9 +63,10 @@
         class="flex flex-1 w-full items-center justify-center md:justify-end"
       >
         <section id="hero-right" class="flex flex-col">
-          <article id="project-showcase" class="relative mb-6">
-            <img class="project-image w-9/12 lg:w-full" :src="covid19ObserverImg" />
-            <img class="project-image absolute top-0 left-10 lg:left-18 xl:left-24 h-full" :src="agileValuesPrincipleImg" />
+          <article id="project-showcase" class="mb-6 flex">
+            <img class="project-image w-3/4 shadow-2xl"  :src="covid19ObserverImg" />
+            <img class="project-image w-3/4 shadow-2xl transform -translate-x-3/4 -translate-y-6" :src="agileValuesPrincipleImg" />
+            <img class="project-image w-3/4 shadow-2xl transform -translate-x-2/4 -translate-y-12" :src="underTheShelves" />
           </article>
           <nav id="shortcut-container" class="w-full flex flex-row flex-1">
             <Shortcut
@@ -87,6 +88,8 @@
 <script>
 import agileValuesPrincipleImg from "./assets/project-images/agile-values-principles.png";
 import covid19ObserverImg from "./assets/project-images/covid19-observer.png";
+import underTheShelves from './assets/project-images/under-the-shelves.png'
+
 import Shortcut from "./components/Shortcut.vue";
 import {
   UserIcon,
@@ -100,6 +103,7 @@ export default {
     return {
       agileValuesPrincipleImg,
       covid19ObserverImg,
+      underTheShelves,
       shortcuts: [
         {
           name: "About",
@@ -141,18 +145,30 @@ export default {
   border-radius: 1em;
 }
 
-.project-image:last-child {
-    -webkit-box-shadow: -20px -2px 20px 0px rgb(63 63 63 / 60%);
-    box-shadow: -20px -2px 20px 0px rgb(63 63 63 / 60%);
+.project-image:nth-child(2) {
+  transform:  rotate3d(26, 47, -5, 20deg) translateX(-90%) translateY(-24px);
 }
 
-@media only screen  and (min-width: 768px) {
-    .project-image:last-child {
-        -webkit-box-shadow: -34px -4px 25px 0px rgb(63 63 63 / 70%);
-        box-shadow: -34px -4px 25px 0px rgb(63 63 63 / 70%);
-    }
+.project-image:nth-child(3) {
+  transform:  rotate3d(26, 47, -5, 20deg) translateX(-180%) translateY(-48px);
 }
 
+@media only screen and (min-width:670px ) {
+  #project-showcase {
+    transform: scale(.8);
+  }
+}
 
+@media only screen and (min-width:768px ) {
+  #project-showcase {
+    transform: scale(.7);
+  }
+}
+
+@media only screen and (min-width:1280px ) {
+  #project-showcase {
+    transform: scale(1);
+  }
+}
 
 </style>

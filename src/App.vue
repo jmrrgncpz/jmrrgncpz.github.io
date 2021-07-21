@@ -1,9 +1,9 @@
 <template>
   <Hero v-on:shortcut-clicked="(elementId) => scrollToElement(elementId)" />
-  <div id="about" class="p-10 md:mx-40 text-black flex flex-col">
-    <div id="about-me" class="mb-12 md:w-3/6 md:p-5">
-      <h1 class="font-header text-4xl md:text-5xl mb-6">About</h1>
-      <p class="text-lg md:text-2xl mb-4">
+  <div id="about" class="p-10 md:mx-20 text-black flex flex-col">
+    <div id="about-me" class="lg:min-h-screen mb-12 lg:w-3/6 md:p-5">
+      <h1 class="font-header text-4xl md:text-5xl mb-6 tracking-wider">About</h1>
+      <p class="text-lg md:text-2xl mb-4 tracking-wide">
         A full-stack developer with around
         <span class="text-primary-500 font-semibold"
           >3 years of experience</span
@@ -11,22 +11,20 @@
         working with
         <span class="text-primary-500 font-semibold">web technologies.</span>
       </p>
-      <p class="text-lg md:text-2xl mb-12">
+      <p class="text-lg md:text-2xl mb-12 tracking-wide">
         I pride myself as someone who's
         <span class="text-primary-500 font-semibold"
           >passionate on web development / software engineering</span
         >. Learned and practiced a lot since I was a student.
       </p>
-      <p class="text-2xl md:text-4xl font-bold">
-        <span class="text-primary-500">Challenges excite me.</span> <br />
-        <span class="font-medium"
-          >If you need a solution for your business, I might be able to
-          help</span
-        >.
-      </p>
+      <p class="text-2xl md:text-4xl font-bold text-primary-500 tracking-widest mb-6">Challenges excite me.</p>
+      <span class="text-2xl md:text-4xl font-medium"
+        >If you need a solution for your business, I might be able to
+        help</span
+      >.
     </div>
 
-    <div class="md:w-3/6 md:self-end md:p-5">
+    <div class="lg:w-3/6 md:self-end md:p-5 lg:min-h-screen">
       <div id="key-technologies" class="mb-10">
         <h1 class="font-header text-4xl md:text-5xl">Key Technologies</h1>
         <p class="mb-6 text-lg">The tech I worked a lot with</p>
@@ -53,12 +51,12 @@
       </div>
     </div>
   </div>
-  <div id="projects" class="p-10 md:mx-40 text-black">
+  <div id="projects" class="p-10 md:mx-20 text-black">
     <h1 class="font-header text-4xl md:text-5xl mb-6">
       Projects / Sample Works
     </h1>
 
-    <div id="projects-container" class="grid gap-12 grid-cols-1 md:grid-cols-2">
+    <div id="projects-container" class="grid gap-12 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3">
       <Project
         v-for="(project, i) in projects"
         :key="i"
@@ -70,12 +68,12 @@
       </Project>
     </div>
   </div>
-  <div id="blog" class="p-10 md:mx-40 text-black">
+  <div id="blog" class="p-10 md:mx-20 text-black">
     <h1 class="font-header text-4xl md:text-5xl mb-6">Blog</h1>
   </div>
   <div
     id="contact-me"
-    class="p-10 md:mx-40 bg-blue-900 text-white md:flex flex-wrap"
+    class="p-10 md:mx-20 bg-blue-900 text-white md:flex flex-wrap"
   >
     <div id="contact-me-section" class="mb-6 md:mb-0 flex-1">
       <h1 class="font-header text-4xl md:text-5xl mb-6">Contact me</h1>
@@ -118,7 +116,7 @@ import {
 } from "@heroicons/vue/solid";
 import agileValuesPrincipleImg from "./assets/project-images/agile-values-principles.png";
 import covid19ObserverImg from "./assets/project-images/covid19-observer.png";
-
+import underTheShelves from './assets/project-images/under-the-shelves.png'
 export default {
   data() {
     return {
@@ -126,12 +124,25 @@ export default {
       github: "",
       projects: [
         {
+          title: '[Ongoing] Under the Shelves',
+          imagePath: underTheShelves,
+          technologies: [
+            'React',
+            'tailwind Css',
+            {
+              logoName: 'https://nextjs.org/',
+              name: 'Next JS'
+            }
+          ],
+          url: 'https://undertheshelves.vercel.app'
+        },
+        {
           title: "Agile Values and Principles",
           imagePath: agileValuesPrincipleImg,
           technologies: [
             "vuejs",
             "vuetify",
-            { logoName: "firebase.events", name: "firebase" },
+            { logoName: "https://firebase.com", name: "firebase" },
             "jest",
           ],
           url: "https://jmrrgncpz.github.io/agile-values-principles",
@@ -141,10 +152,10 @@ export default {
           imagePath: covid19ObserverImg,
           technologies: [
             "vuejs",
-            {
-              logoName: "buefy.org",
-              name: "buefy",
-            },
+            // {
+            //   logoName: "buefy.org",
+            //   name: "buefy",
+            // },
             "node",
             "heroku",
             "postgresql",
