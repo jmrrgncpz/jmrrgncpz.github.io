@@ -87,8 +87,8 @@
 
 <script>
 import agileValuesPrincipleImg from "./assets/project-images/agile-values-principles.png";
-import covid19ObserverImg from "./assets/project-images/covid19-observer.png";
-import underTheShelves from './assets/project-images/under-the-shelves.png'
+import covid19ObserverImg from "./assets/project-images/covid19-observer2.png";
+import underTheShelves from './assets/project-images/under-the-shelves2.png'
 
 import Shortcut from "./components/Shortcut.vue";
 import {
@@ -146,11 +146,11 @@ export default {
 }
 
 .project-image:nth-child(2) {
-  transform:  rotate3d(26, 47, -5, 20deg) translateX(-90%) translateY(-24px);
+  transform:  rotate3d(26, 47, -5, 20deg) translateX(-85%) translateY(-48px);
 }
 
 .project-image:nth-child(3) {
-  transform:  rotate3d(26, 47, -5, 20deg) translateX(-180%) translateY(-48px);
+  transform:  rotate3d(26, 47, -5, 20deg) translateX(-170%) translateY(-96px);
 }
 
 @media only screen and (min-width:670px ) {

@@ -115,8 +115,8 @@ import {
   MailIcon
 } from "@heroicons/vue/solid";
 import agileValuesPrincipleImg from "./assets/project-images/agile-values-principles.png";
-import covid19ObserverImg from "./assets/project-images/covid19-observer.png";
-import underTheShelves from './assets/project-images/under-the-shelves.png'
+import covid19ObserverImg from "./assets/project-images/covid19-observer2.png";
+import underTheShelves from './assets/project-images/under-the-shelves2.png'
 export default {
   data() {
     return {

@@ -6,8 +6,10 @@
       class="text-xl md:text-2xl md:hover:underline text-primary-500 font-semibold"
       >{{ title }}</a
     >
-    <h6 class="mt-2 mb-1">Technologies</h6>
-    <div class="logo-container mb-4 flex flex-wrap">
+
+    <img class="shadow-lg bg-white rounded-md mt-2 object-cover" :src="imagePath" />
+    <h6 class="mt-2 mb-1 text-xs">Technologies</h6>
+    <div class="logo-container flex flex-wrap">
       <Tag
         v-for="(technologyLogo, i) in technologyLogos"
         :key="i"
@@ -15,7 +17,6 @@
         :imgSrc="technologyLogo.imgSrc"
       ></Tag>
     </div>
-    <img class="shadow-lg bg-white rounded-md" :src="imagePath" />
   </div>
 </template>
 
