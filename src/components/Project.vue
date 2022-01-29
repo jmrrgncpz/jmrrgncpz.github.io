@@ -46,6 +46,15 @@ export default {
   methods: {
     getTechnologyLogo(technology) {
       const isObject = typeof technology == "object";
+      
+      if (isObject && technology.imgSrc) {
+        this.technologyLogos.push({
+          imgSrc: technology.imgSrc,
+          label: technology.name,
+        })
+        return;
+      }
+
       return fetch(
         `https://autocomplete.clearbit.com/v1/companies/suggest?query=${
           isObject ? technology.logoName : technology
