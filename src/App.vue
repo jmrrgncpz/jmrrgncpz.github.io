@@ -4,9 +4,9 @@
     <div id="about-me" class="lg:min-h-screen mb-12 lg:w-3/6 md:p-5">
       <h1 class="font-header text-4xl md:text-5xl mb-6 tracking-wider">About</h1>
       <p class="text-lg md:text-2xl mb-4 tracking-wide">
-        A full-stack developer with around
+        A full-stack developer approaching
         <span class="text-primary-500 font-semibold"
-          >3 years of experience</span
+          >4 years of experience</span
         >
         working with
         <span class="text-primary-500 font-semibold">web technologies.</span>
@@ -20,14 +20,14 @@
       <p class="text-2xl md:text-4xl font-bold text-primary-500 tracking-widest mb-6">Challenges excite me.</p>
       <span class="text-2xl md:text-4xl font-medium"
         >If you need a solution for your business, I might be able to
-        help</span
-      >.
+        help.</span
+      >
     </div>
 
     <div class="lg:w-3/6 md:self-end md:p-5 lg:min-h-screen">
       <div id="key-technologies" class="mb-10">
         <h1 class="font-header text-4xl md:text-5xl">Key Technologies</h1>
-        <p class="mb-6 text-lg">The tech I worked a lot with</p>
+        <p class="mb-6 text-lg">The tech I have worked a lot with</p>
         <Tag label="Javascript" />
         <Tag label="C#" />
         <Tag label="T-SQL" />
@@ -35,18 +35,30 @@
       <div id="technologies">
         <h1 class="font-header text-4xl md:text-5xl">Technologies</h1>
         <p class="mb-6 text-lg">
+          Most recent technology stack
+        </p>
+        <div class="flex flex-wrap">
+          <Tag label="React" />
+          <Tag label="Jest & React Testing Library" />
+          <Tag label="Material UI w/ styled components" />
+          <Tag label="Tailwind CSS" />
+          <Tag label="React Redux Toolkit w/ RTK Query" />
+        </div>
+        <p class="mb-6 text-lg">
           Languages, frameworks, libraries, and tools I have used
         </p>
         <div class="flex flex-wrap">
           <Tag label="HTML / CSS / SAAS" />
-          <Tag label="Vue / React / Aurelia / Angular" />
+          <Tag label="Next JS" />
+          <Tag label="Vue / Aurelia / Angular" />
           <Tag label="Vuex / Vue Router" />
           <Tag label="C# / .Net 4.6^ / .Net Core 5" />
-          <Tag label="Bulma CSS / Buefy / Material UI / Tailwind CSS" />
+          <Tag label="Bulma CSS / Buefy" />
           <Tag label="T-SQL / Entity Framework 6 / Entity Framework Core" />
           <Tag label="Git / Azure Devops CI CD" />
           <Tag label="AJAX / Axios" />
           <Tag label="Node / NPM / Webpack / Parcel" />
+          <Tag label="Strapi" />
         </div>
       </div>
     </div>
@@ -68,7 +80,7 @@
       </Project>
     </div>
   </div>
-  <div id="blog" class="p-10 md:mx-20 text-black">
+  <div v-if="blog.length" id="blog" class="p-10 md:mx-20 text-black">
     <h1 class="font-header text-4xl md:text-5xl mb-6">Blog</h1>
   </div>
   <div
@@ -112,7 +124,8 @@ import Hero from './Hero.vue'
 import Project from "./components/Project.vue";
 import Tag from "./components/Tag.vue";
 import {
-  MailIcon
+  MailIcon,
+  PhoneIcon
 } from "@heroicons/vue/solid";
 import agileValuesPrincipleImg from "./assets/project-images/agile-values-principles.png";
 import covid19ObserverImg from "./assets/project-images/covid19-observer2.png";
@@ -129,6 +142,7 @@ export default {
           technologies: [
             'React',
             'tailwind Css',
+            'Strapi',
             {
               logoName: 'https://nextjs.org/',
               name: 'Next JS'
@@ -163,6 +177,7 @@ export default {
           url: "https://jmrrgncpz.github.io/COVID19Observer",
         },
       ],
+      blogs: [],
     };
   },
   mounted() {
@@ -187,6 +202,7 @@ export default {
   components: {
     Hero,
     MailIcon,
+    PhoneIcon,
     Tag,
     Project,
   },
