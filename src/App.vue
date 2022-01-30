@@ -159,6 +159,7 @@ export default {
               imgSrc: "https://www.drupal.org/files/issues/2019-12-27/heroku_logo.png",
               name: 'heroku',
             },
+            "SendGrid",
           ],
           url: "https://undertheshelves.vercel.app",
         },
