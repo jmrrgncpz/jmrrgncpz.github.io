@@ -37,7 +37,7 @@
           <div class="mb-8">
             <span
               class="font-display text-primary-500 text-2xl lg:text-3xl mb-1"
-              >Full-stack web developer</span
+              >Frontend Engineer</span
             >
           </div>
           <div class="flex justify-center md:justify-start">
