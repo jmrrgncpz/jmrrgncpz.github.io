@@ -6,12 +6,14 @@
         About
       </h1>
       <p class="text-lg md:text-2xl mb-4 tracking-wide">
-        A full-stack developer approaching
+        A full-stack developer having
         <span class="text-primary-500 font-semibold"
-          >4 years of experience</span
+          >5 years of experience</span
         >
         working with
-        <span class="text-primary-500 font-semibold">web technologies.</span>
+        <span class="text-primary-500 font-semibold"
+          >web and mobile technologies.</span
+        >
       </p>
       <p class="text-lg md:text-2xl mb-12 tracking-wide">
         I pride myself as someone who's
@@ -35,19 +37,16 @@
         <h1 class="font-header text-4xl md:text-5xl">Key Technologies</h1>
         <p class="mb-6 text-lg">The tech I have worked a lot with</p>
         <Tag label="Javascript" />
-        <Tag label="C#" />
-        <Tag label="T-SQL" />
+        <Tag label="React | React Native" />
       </div>
       <div id="technologies">
         <h1 class="font-header text-4xl md:text-5xl mb-6">Technologies</h1>
         <div class="tech-subsection mb-8">
           <p class="mb-2 text-lg">Most recent technology stack</p>
           <div class="flex flex-wrap">
-            <Tag label="React" />
             <Tag label="Jest & React Testing Library" />
-            <Tag label="Material UI w/ styled components" />
-            <Tag label="Tailwind CSS" />
             <Tag label="React Redux Toolkit w/ RTK Query" />
+            <Tag label="Nativebase" />
           </div>
         </div>
         <div class="tech-subsection">
@@ -62,10 +61,13 @@
             <Tag label="C# / .Net 4.6^ / .Net Core 5" />
             <Tag label="Bulma CSS / Buefy" />
             <Tag label="T-SQL / Entity Framework 6 / Entity Framework Core" />
-            <Tag label="Git / Azure Devops CI CD" />
+            <Tag label="Git / Git Actions / Azure Devops CI CD" />
+            <Tag label="Fastlane" />
             <Tag label="AJAX / Axios" />
             <Tag label="Node / NPM / Webpack / Parcel" />
             <Tag label="Strapi" />
+            <Tag label="Material UI w/ styled components" />
+            <Tag label="Tailwind CSS" />
           </div>
         </div>
       </div>
@@ -138,6 +140,8 @@ import { MailIcon, PhoneIcon } from "@heroicons/vue/solid";
 import agileValuesPrincipleImg from "./assets/project-images/agile-values-principles.png";
 import covid19ObserverImg from "./assets/project-images/covid19-observer2.png";
 import underTheShelves from "./assets/project-images/under-the-shelves2.png";
+import bookipay from "./assets/project-images/bookipay.jpg";
+
 export default {
   data() {
     return {
@@ -145,7 +149,36 @@ export default {
       github: "",
       projects: [
         {
-          title: "[Ongoing] Under the Shelves",
+          title: "Bookipay | Bookipi",
+          url: "https://bookipay.com",
+          imagePath: bookipay,
+          technologies: [
+            "React Native",
+            {
+              logoName: "https://www.typescriptlang.org/",
+              name: "Typescript",
+            },
+            {
+              name: "Redux Toolkit",
+              logoName: "https://redux.js.org/",
+            },
+            {
+              logoName: "https://testing-library.com",
+              name: "Testing Library",
+            },
+            "Jest",
+            {
+              name: "Codegen",
+              logoName: "https://the-guild.dev/",
+            },
+            {
+              name: "fastlane",
+              logoName: "https://fastlane.tools/",
+            },
+          ],
+        },
+        {
+          title: "Under the Shelves",
           imagePath: underTheShelves,
           technologies: [
             "React",
@@ -156,8 +189,9 @@ export default {
               name: "Next JS",
             },
             {
-              imgSrc: "https://www.drupal.org/files/issues/2019-12-27/heroku_logo.png",
-              name: 'heroku',
+              imgSrc:
+                "https://www.drupal.org/files/issues/2019-12-27/heroku_logo.png",
+              name: "heroku",
             },
             "SendGrid",
           ],
@@ -185,8 +219,9 @@ export default {
             // },
             "node",
             {
-              imgSrc: "https://www.drupal.org/files/issues/2019-12-27/heroku_logo.png",
-              name: 'heroku',
+              imgSrc:
+                "https://www.drupal.org/files/issues/2019-12-27/heroku_logo.png",
+              name: "heroku",
             },
             "postgresql",
           ],
